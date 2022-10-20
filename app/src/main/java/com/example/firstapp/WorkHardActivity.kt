@@ -7,27 +7,28 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import android.widget.Button
+import com.example.firstapp.constance.Constance
 
-class ActivitySix : AppCompatActivity() {
+class WorkHardActivity : AppCompatActivity() {
 
     val handler = Handler(Looper.getMainLooper())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_six)
+        setContentView(R.layout.activity_work_hard)
 
         handler.postDelayed({
-            startActivity(Intent(this, ActivitySeven::class.java))
+            startActivity(Intent(this, EnjoyActivity::class.java))
             finish()
-        }, 10000)
+        }, Constance.TIME_SLIDE_ACTIVITY)
 
-        val buttonSkip6 = findViewById<Button>(R.id.btn_skip6)
-        buttonSkip6.setOnClickListener(::onClickSkip6)
+        val buttonSkip5 = findViewById<Button>(R.id.btn_skip5)
+        buttonSkip5.setOnClickListener(::onClickSkip5)
     }
 
 
-    private fun onClickSkip6(view: View) {
-        startActivity(Intent(this, ActivitySeven::class.java))
+    private fun onClickSkip5(view: View) {
+        startActivity(Intent(this, EnjoyActivity::class.java))
         handler.removeCallbacksAndMessages(null);
     }
 }

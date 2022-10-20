@@ -7,26 +7,27 @@ import android.os.Looper
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.example.firstapp.constance.Constance
 
-class ActivityTwo : AppCompatActivity() {
+class FindProjectActivity : AppCompatActivity() {
 
     val handler = Handler(Looper.getMainLooper())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_two)
+        setContentView(R.layout.activity_find_project)
 
         handler.postDelayed({
-            startActivity(Intent(this, ActivityThree::class.java))
+            startActivity(Intent(this, MakeMoneyActivity::class.java))
             finish()
-        }, 10000)
+        }, Constance.TIME_SLIDE_ACTIVITY)
 
         val buttonSkip2 = findViewById<Button>(R.id.btn_skip2)
         buttonSkip2.setOnClickListener(::onClickSkip2)
     }
 
     private fun onClickSkip2(view: View) {
-        startActivity(Intent(this, ActivityThree::class.java))
+        startActivity(Intent(this, MakeMoneyActivity::class.java))
         handler.removeCallbacksAndMessages(null);
     }
 

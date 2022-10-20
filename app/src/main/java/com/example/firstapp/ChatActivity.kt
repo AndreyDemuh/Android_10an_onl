@@ -7,26 +7,27 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import android.widget.Button
+import com.example.firstapp.constance.Constance
 
-class ActivityFour : AppCompatActivity() {
+class ChatActivity : AppCompatActivity() {
 
     val handler = Handler(Looper.getMainLooper())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_four)
+        setContentView(R.layout.activity_chat)
 
         handler.postDelayed({
-            startActivity(Intent(this, ActivityFive::class.java))
+            startActivity(Intent(this, WorkHardActivity::class.java))
             finish()
-        }, 10000)
+        }, Constance.TIME_SLIDE_ACTIVITY)
 
         val buttonSkip4 = findViewById<Button>(R.id.btn_skip4)
         buttonSkip4.setOnClickListener(::onClickSkip4)
     }
 
     private fun onClickSkip4(view: View) {
-        startActivity(Intent(this, ActivityFive::class.java))
+        startActivity(Intent(this, WorkHardActivity::class.java))
         handler.removeCallbacksAndMessages(null);
     }
 }
