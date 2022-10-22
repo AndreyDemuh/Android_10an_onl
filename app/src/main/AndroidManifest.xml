@@ -13,49 +13,49 @@
         android:theme="@style/Theme.FirstApp"
         tools:targetApi="31">
         <activity
-            android:name=".ActivityEight"
+            android:name=".LogInActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ActivitySeven"
+            android:name=".SignUpActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ActivitySix"
+            android:name=".EnjoyActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ActivityFive"
+            android:name=".WorkHardActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ActivityFour"
+            android:name=".ChatActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ActivityThree"
+            android:name=".MakeMoneyActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ActivityTwo"
+            android:name=".FindProjectActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

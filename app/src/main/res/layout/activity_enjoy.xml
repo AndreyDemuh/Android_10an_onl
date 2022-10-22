@@ -5,56 +5,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActivityFive">
+    tools:context=".EnjoyActivity">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/background_bubbles_5"/>
+        android:background="@drawable/background_bubbles_6"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_skip5"
+        android:id="@+id/btn_skip6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginTop="@dimen/dp_16"
-        android:layout_marginEnd="@dimen/dp_15"
-        android:background="@null"
-        android:text="@string/skip"
-        android:textAllCaps="false"
-        android:textColor="@color/black"/>
+        style="@style/ButtonSkipLayoutStyle" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center|top"
-        android:text="@string/spiice"
-        android:textAllCaps="false"
-        android:textSize="@dimen/sp_32"
-        android:textColor="@color/black"
-        android:layout_marginTop="@dimen/dp_48"/>
+        style="@style/TextSpiiceLayoutStyle"/>
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center|top"
-        android:background="@drawable/illustration_arrow"
-        android:layout_marginTop="@dimen/dp_138"/>
+        android:layout_gravity="center"
+        android:background="@drawable/illustration_heart"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="top|center"
-        android:text="@string/work_hard"
-        android:gravity="center"
-        android:textSize="@dimen/sp_18"
+        android:layout_gravity="center|top"
+        android:text="@string/enjoy"
+        style="@style/TextInfoLayoutStyle"
         android:layout_marginTop="@dimen/dp_643"/>
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|center"
-        android:background="@drawable/diaporama_5"
+        android:background="@drawable/diaporama_6"
         android:layout_marginTop="@dimen/dp_734"/>
 
 </FrameLayout>
