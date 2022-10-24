@@ -29,7 +29,6 @@ class AddNoteActivity : AppCompatActivity() {
             setResult(RESULT_OK, editIntent)
             taskRepository.addNewTask(createTask)
             finish()
-
         }
     }
 }

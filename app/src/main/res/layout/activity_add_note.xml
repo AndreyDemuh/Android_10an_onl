@@ -13,7 +13,7 @@
         android:layout_width="@dimen/dp_16"
         android:layout_height="@dimen/dp_15"
         android:layout_marginTop="@dimen/dp_50"
-        android:background="@drawable/arrow_back"
+        android:background="@drawable/arrow_back_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.076"
         app:layout_constraintStart_toStartOf="parent"
@@ -121,6 +121,5 @@
         app:layout_constraintEnd_toEndOf="@+id/messageContainer"
         app:layout_constraintStart_toStartOf="@+id/messageContainer"
         app:layout_constraintTop_toBottomOf="@+id/messageContainer" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

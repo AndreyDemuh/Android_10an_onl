@@ -30,4 +30,5 @@ class WorkHardActivity : AppCompatActivity() {
         startActivity(Intent(this, EnjoyActivity::class.java))
         handler.removeCallbacksAndMessages(null);
     }
+
 }

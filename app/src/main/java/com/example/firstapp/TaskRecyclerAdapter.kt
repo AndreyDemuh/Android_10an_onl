@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
+
 class TaskRecyclerAdapter: RecyclerView.Adapter<TaskViewHolder>() {
 
     private val taskList = ArrayList<Task>()

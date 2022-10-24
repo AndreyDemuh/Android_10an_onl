@@ -148,4 +148,5 @@ class SignUpActivity : AppCompatActivity() {
     fun onClickLogIn(view: View){
         startActivity(Intent(this, LogInActivity::class.java))
     }
+
 }

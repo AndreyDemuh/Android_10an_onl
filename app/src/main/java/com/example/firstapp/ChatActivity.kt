@@ -30,5 +30,4 @@ class ChatActivity : AppCompatActivity() {
         startActivity(Intent(this, WorkHardActivity::class.java))
         handler.removeCallbacksAndMessages(null);
     }
-
 }
