@@ -18,5 +18,14 @@
     <string name="launcher_log_in">Log-in</string>
     <string name="log_in">Log-in</string>
     <string name="return_to_sign_up">Return to Sign-up</string>
+    <string name="add">Add</string>
+    <string name="message">Message</string>
+    <string name="add_note">Add note</string>
+    <string name="dateHint">ДД.ММ.ГГГГ</string>
+    <string name="messageHint">Message</string>
+    <string name="titlesHint">Titles</string>
+    <string name="add_new">Add new</string>
+    <string name="title">Title</string>
+    <string name="addButton">Add</string>
 
 </resources>

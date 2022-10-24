@@ -11,8 +11,8 @@ import com.example.firstapp.databinding.ActivitySignUpBinding
 
 
 class SignUpActivity : AppCompatActivity() {
-    lateinit var bindingClass : ActivitySignUpBinding
 
+    lateinit var bindingClass : ActivitySignUpBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
