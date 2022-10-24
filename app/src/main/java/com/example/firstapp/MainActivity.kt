@@ -19,6 +19,5 @@ class MainActivity : AppCompatActivity() {
         buttonLogin.setOnClickListener{
             startActivity(Intent(this, LogInActivity::class.java))
         }
-
     }
 }

@@ -12,7 +12,6 @@ import com.example.firstapp.databinding.ActivityLogInBinding
 
 class LogInActivity : AppCompatActivity() {
 
-
     lateinit var bindingClass: ActivityLogInBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

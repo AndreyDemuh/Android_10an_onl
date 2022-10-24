@@ -7,7 +7,6 @@ object TaskRepository {
 
     fun addNewTask(task: Task){
         taskListSingleton.add(task)
-
     }
 
     fun getTasks(): List <Task>{

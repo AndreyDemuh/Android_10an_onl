@@ -26,7 +26,6 @@ class WorkHardActivity : AppCompatActivity() {
         buttonSkip5.setOnClickListener(::onClickSkip5)
     }
 
-
     private fun onClickSkip5(view: View) {
         startActivity(Intent(this, EnjoyActivity::class.java))
         handler.removeCallbacksAndMessages(null);

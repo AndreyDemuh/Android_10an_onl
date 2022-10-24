@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.firstapp.constance.Constance
 import com.example.firstapp.databinding.ActivitySignUpBinding
 
-
 class SignUpActivity : AppCompatActivity() {
 
     lateinit var bindingClass : ActivitySignUpBinding

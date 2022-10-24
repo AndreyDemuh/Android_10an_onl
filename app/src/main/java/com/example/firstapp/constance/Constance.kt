@@ -10,6 +10,4 @@ object Constance {
     const val MIN_LASTNAME_TEXT = 2
     const val MAX_LASTNAME_TEXT = 150
 
-
-
 }

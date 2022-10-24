@@ -25,5 +25,4 @@ class TaskRecyclerAdapter: RecyclerView.Adapter<TaskViewHolder>() {
         taskList.add(task)
         notifyDataSetChanged()
     }
-
 }

@@ -30,5 +30,4 @@ class MakeMoneyActivity : AppCompatActivity() {
         startActivity(Intent(this, ChatActivity::class.java))
         handler.removeCallbacksAndMessages(null);
     }
-
 }

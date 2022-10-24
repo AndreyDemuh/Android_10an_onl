@@ -16,7 +16,6 @@ class TaskActivity : AppCompatActivity() {
     private val adapter = TaskRecyclerAdapter()
     private var editLauncher: ActivityResultLauncher<Intent>? = null
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         bindingClass = ActivityTaskBinding.inflate(layoutInflater)

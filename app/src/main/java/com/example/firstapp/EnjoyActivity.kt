@@ -26,7 +26,6 @@ class EnjoyActivity : AppCompatActivity() {
         buttonSkip6.setOnClickListener(::onClickSkip6)
     }
 
-
     private fun onClickSkip6(view: View) {
         startActivity(Intent(this, SignUpActivity::class.java))
         handler.removeCallbacksAndMessages(null);

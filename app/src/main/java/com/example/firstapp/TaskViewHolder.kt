@@ -13,4 +13,5 @@ class TaskViewHolder(item: View): RecyclerView.ViewHolder(item) {
         tvMessageTask.text = task.messageTask
         tvDateTask.text = task.data
     }
+
 }
