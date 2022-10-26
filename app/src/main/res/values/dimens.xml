@@ -74,5 +74,13 @@
     <dimen name="sp_26">26sp</dimen>
     <dimen name="sp_12">12.8sp</dimen>
     <dimen name="sp_20">20sp</dimen>
+    <dimen name="dp_263">263dp</dimen>
+    <dimen name="dp_461">461dp</dimen>
+    <dimen name="dp_88">88dp</dimen>
+    <dimen name="dp_310">310dp</dimen>
+    <dimen name="dp_412">412dp</dimen>
+    <dimen name="dp_312">312dp</dimen>
+    <dimen name="DataPickerTextSize">42sp</dimen>
+
 
 </resources>
