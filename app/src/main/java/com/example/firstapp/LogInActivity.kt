@@ -12,7 +12,6 @@ import com.example.firstapp.databinding.ActivityLogInBinding
 
 class LogInActivity : AppCompatActivity() {
 
-
     lateinit var bindingClass: ActivityLogInBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,7 +32,7 @@ class LogInActivity : AppCompatActivity() {
         val validPassword = bindingClass.passwordContainer.helperText == null
 
         if(validEmail && validPassword)
-            startActivity(Intent(this, SignUpActivity::class.java))
+            startActivity(Intent(this, TaskActivity::class.java))
         else
             invalidForm()
     }
@@ -103,6 +102,7 @@ class LogInActivity : AppCompatActivity() {
 
     fun onLogIn(view: View) {
         submitForm()
+        startActivity(Intent(this, AddNoteActivity::class.java))
     }
 
     fun onClickSignUp(view: View){

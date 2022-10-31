@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.Button
 import com.example.firstapp.constance.Constance
 
+
 class EnjoyActivity : AppCompatActivity() {
 
     val handler = Handler(Looper.getMainLooper())
@@ -25,7 +26,6 @@ class EnjoyActivity : AppCompatActivity() {
         val buttonSkip6 = findViewById<Button>(R.id.btn_skip6)
         buttonSkip6.setOnClickListener(::onClickSkip6)
     }
-
 
     private fun onClickSkip6(view: View) {
         startActivity(Intent(this, SignUpActivity::class.java))

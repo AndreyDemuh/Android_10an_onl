@@ -9,10 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.firstapp.constance.Constance
 import com.example.firstapp.databinding.ActivitySignUpBinding
 
-
 class SignUpActivity : AppCompatActivity() {
-    lateinit var bindingClass : ActivitySignUpBinding
 
+    lateinit var bindingClass : ActivitySignUpBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -149,4 +148,5 @@ class SignUpActivity : AppCompatActivity() {
     fun onClickLogIn(view: View){
         startActivity(Intent(this, LogInActivity::class.java))
     }
+
 }
