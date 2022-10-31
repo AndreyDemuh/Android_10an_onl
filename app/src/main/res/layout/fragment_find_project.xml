@@ -4,13 +4,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".FindProjectActivity">
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/fragmentFindProject_2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_bubbles_2">
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/background_bubbles_2"/>
+        android:layout_height="match_parent" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_skip2"
@@ -46,5 +50,7 @@
         android:layout_gravity="top|center"
         android:background="@drawable/diaporama_2"
         android:layout_marginTop="@dimen/dp_734"/>
+
+    </FrameLayout>
 
 </FrameLayout>

@@ -5,9 +5,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroungMain"
-    android:orientation="vertical"
-    tools:context=".TaskActivity">
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/fragmentTask_9"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backgroungMain">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -49,17 +53,47 @@
             android:textColor="@color/hintText"
             android:textSize="@dimen/sp_18" />
 
+        </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_8"
+        android:layout_marginTop="@dimen/dp_100"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvSorted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_24"
+            android:gravity="center|start"
+            android:text="@string/TvSorted" />
+
+        <Spinner
+            android:id="@+id/spinner_category_task"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_8"
+            android:gravity="end"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcTaskView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dp_130"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:listitem="@layout/task_item"/>
+
+    </FrameLayout>
 
 </LinearLayout>

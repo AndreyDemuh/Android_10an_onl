@@ -49,7 +49,7 @@
     <dimen name="dp_146">146dp</dimen>
     <dimen name="dp_691">691dp</dimen>
     <dimen name="dp_656">656dp</dimen>
-    <dimen name="dp_94">94dp</dimen>
+    <dimen name="dp_75">75dp</dimen>
     <dimen name="dp_130">130dp</dimen>
     <dimen name="dp_30">30dp</dimen>
     <dimen name="dp_318">318dp</dimen>
@@ -80,7 +80,10 @@
     <dimen name="dp_310">310dp</dimen>
     <dimen name="dp_412">412dp</dimen>
     <dimen name="dp_312">312dp</dimen>
-    <dimen name="DataPickerTextSize">42sp</dimen>
+    <dimen name="dp_2">2dp</dimen>
+    <dimen name="dp_20">20dp</dimen>
+    <dimen name="dp_131">131dp</dimen>
+    <dimen name="dp_195">195dp</dimen>
 
 
 </resources>

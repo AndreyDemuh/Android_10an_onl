@@ -4,45 +4,53 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".EnjoyActivity">
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/fragmentChat_4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_bubbles_4">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/background_bubbles_6"/>
+        android:scaleType="centerCrop" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_skip6"
+        android:id="@+id/btn_skip4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/ButtonSkipLayoutStyle" />
+        style="@style/ButtonSkipLayoutStyle"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center|top"
-        style="@style/TextSpiiceLayoutStyle"/>
+        style="@style/TextSpiiceLayoutStyle" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@drawable/illustration_heart"/>
+        android:layout_gravity="center|top"
+        android:background="@drawable/illustration_phone"
+        android:layout_marginTop="@dimen/dp_170"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center|top"
-        android:text="@string/enjoy"
-        style="@style/TextInfoLayoutStyle"
-        android:layout_marginTop="@dimen/dp_643"/>
+        android:text="@string/chat"
+        android:layout_marginTop="@dimen/dp_643"
+        style="@style/TextInfoLayoutStyle" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|center"
-        android:background="@drawable/diaporama_6"
+        android:background="@drawable/diaporama_4"
         android:layout_marginTop="@dimen/dp_734"/>
+
+    </FrameLayout>
+
 
 </FrameLayout>

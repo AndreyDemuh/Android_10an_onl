@@ -4,16 +4,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MakeMoneyActivity">
+    android:layout_height="match_parent">
+
+
+    <FrameLayout
+        android:id="@+id/fragmentWorkHard_5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_bubbles_5">
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/background_bubbles_3"/>
+        android:layout_height="match_parent" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_skip3"
+        android:id="@+id/btn_skip5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/ButtonSkipLayoutStyle"/>
@@ -22,21 +27,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center|top"
-        style="@style/TextSpiiceLayoutStyle"
-        android:layout_marginTop="@dimen/dp_48"/>
+        style="@style/TextSpiiceLayoutStyle"/>
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="top|center"
-        android:background="@drawable/illustration_dollars"
-        android:layout_marginTop="@dimen/dp_148"/>
+        android:layout_gravity="center|top"
+        android:background="@drawable/illustration_arrow"
+        android:layout_marginTop="@dimen/dp_138"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|center"
-        android:text="@string/make_money"
+        android:text="@string/work_hard"
         style="@style/TextInfoLayoutStyle"
         android:layout_marginTop="@dimen/dp_643"/>
 
@@ -44,7 +48,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|center"
-        android:background="@drawable/diaporama_3"
+        android:background="@drawable/diaporama_5"
         android:layout_marginTop="@dimen/dp_734"/>
+
+    </FrameLayout>
 
 </FrameLayout>
