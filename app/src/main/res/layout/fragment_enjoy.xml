@@ -4,48 +4,51 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ChatActivity">
+    android:layout_height="match_parent">
 
+    <FrameLayout
+        android:id="@+id/fragmentEnjoy_6"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_bubbles_6">
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:background="@drawable/background_bubbles_4"/>
+        android:layout_height="match_parent" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_skip4"
+        android:id="@+id/btn_skip6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/ButtonSkipLayoutStyle"/>
+        style="@style/ButtonSkipLayoutStyle" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/TextSpiiceLayoutStyle" />
+        android:layout_gravity="center|top"
+        style="@style/TextSpiiceLayoutStyle"/>
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center|top"
-        android:background="@drawable/illustration_phone"
-        android:layout_marginTop="@dimen/dp_170"/>
+        android:layout_gravity="center"
+        android:background="@drawable/illustration_heart"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center|top"
-        android:text="@string/chat"
-        android:layout_marginTop="@dimen/dp_643"
-        style="@style/TextInfoLayoutStyle" />
+        android:text="@string/enjoy"
+        style="@style/TextInfoLayoutStyle"
+        android:layout_marginTop="@dimen/dp_643"/>
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|center"
-        android:background="@drawable/diaporama_4"
+        android:background="@drawable/diaporama_6"
         android:layout_marginTop="@dimen/dp_734"/>
 
+    </FrameLayout>
 
 </FrameLayout>
