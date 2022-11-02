@@ -1,7 +1,5 @@
 package com.example.firstapp.ui.registration
 
-import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,11 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.firstapp.*
 import com.example.firstapp.databinding.FragmentLogInBinding
-import com.example.firstapp.ui.TaskActivity
+import com.example.firstapp.ui.fragments.TaskFragment
+//import com.example.firstapp.ui.TaskActivity
 
 class LogInFragment : Fragment() {
 
-    private lateinit var binding : FragmentLogInBinding
+    private lateinit var binding: FragmentLogInBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,9 +39,9 @@ class LogInFragment : Fragment() {
     }
 
     //функция принимающая результат валидации поля Password (пустое либо нет)
-    private fun validatePassword(): String?{
+    private fun validatePassword(): String? {
         val passwordInputLayout = binding.passwordContainer
-        passwordInputLayout.editText?.let{
+        passwordInputLayout.editText?.let {
             val result = validatePasswords(it.text.toString())
             return when (result) {
                 is Invalid -> {
@@ -54,13 +53,13 @@ class LogInFragment : Fragment() {
                     null
                 }
             }
-        }?: return null
+        } ?: return null
     }
 
     //функция принимающая результат валидации поля Email (пустое либо нет)
-    private fun validateEmail(): String?{
+    private fun validateEmail(): String? {
         val emailInputLayout = binding.emailContainer
-        emailInputLayout.editText?.let{
+        emailInputLayout.editText?.let {
             val result = validateEmails(it.text.toString())
             return when (result) {
                 is Invalid -> {
@@ -72,24 +71,24 @@ class LogInFragment : Fragment() {
                     null
                 }
             }
-        }?: return null
+        } ?: return null
     }
 
-    @SuppressLint("SuspiciousIndentation")
+
     fun onLogIn() {
-        val intent = Intent(context, TaskActivity::class.java)
-        if(validate())
-//            parentFragmentManager.beginTransaction()
-//                .replace(R.id.container, AddTaskFragment())
-//                .addToBackStack("TaskFragment")
-//                .commit()
-        startActivity(intent)
+//        val intent = Intent(context, TaskActivity::class.java)
+        if (validate())
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.container, TaskFragment())
+                .addToBackStack("")
+                .commit()
+//        startActivity(intent)
     }
 
-    fun onClickReturnSignUp(){
+    fun onClickReturnSignUp() {
         parentFragmentManager.beginTransaction()
             .replace(R.id.container, SignUpFragment())
-            .addToBackStack("TaskFragment")
+            .addToBackStack("")
             .commit()
     }
 }

@@ -1,4 +1,4 @@
-package com.example.firstapp.ui
+package com.example.firstapp.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,7 +11,7 @@ import com.example.firstapp.ui.registration.LogInFragment
 
 class StartAppFragment_1 : Fragment() {
 
-    private lateinit var binding : FragmentStartAppBinding
+    private lateinit var binding: FragmentStartAppBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,15 +27,14 @@ class StartAppFragment_1 : Fragment() {
         binding.buttonStart.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.container, FindProjectFragment_2())
-                .addToBackStack("StartFindActivity")
+                .addToBackStack("")
                 .commit()
         }
         binding.btnLoginLauncher.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.container, LogInFragment())
-                .addToBackStack("LogInActivity")
+                .addToBackStack("")
                 .commit()
         }
-
     }
 }

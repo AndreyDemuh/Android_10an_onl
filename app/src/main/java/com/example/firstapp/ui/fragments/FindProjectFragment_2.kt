@@ -1,4 +1,4 @@
-package com.example.firstapp.ui
+package com.example.firstapp.ui.fragments
 
 import android.os.Bundle
 import android.os.Handler
@@ -11,9 +11,9 @@ import com.example.firstapp.R
 import com.example.firstapp.constance.Constance
 import com.example.firstapp.databinding.FragmentFindProjectBinding
 
-class FindProjectFragment_2: Fragment() {
+class FindProjectFragment_2 : Fragment() {
 
-    private lateinit var binding : FragmentFindProjectBinding
+    private lateinit var binding: FragmentFindProjectBinding
     val handler = Handler(Looper.getMainLooper())
 
     override fun onCreateView(
@@ -30,7 +30,7 @@ class FindProjectFragment_2: Fragment() {
         binding.btnSkip2.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.container, MakeMoneyFragment_3())
-                .addToBackStack("MakeMoneyFragment")
+                .addToBackStack("")
                 .commit()
             handler.removeCallbacksAndMessages(null);
         }
@@ -38,7 +38,7 @@ class FindProjectFragment_2: Fragment() {
         handler.postDelayed({
             parentFragmentManager.beginTransaction()
                 .replace(R.id.container, MakeMoneyFragment_3())
-                .addToBackStack("MakeMoneyFragment")
+                .addToBackStack("")
                 .commit()
         }, Constance.TIME_SLIDE_ACTIVITY)
     }

@@ -2,8 +2,8 @@ package com.example.firstapp.dataBase
 
 import com.example.firstapp.model.Task
 
-object TaskRepository {
+object TaskDataBase {
 
-    val taskListSingleton = arrayListOf<Task>()
+    val listTask = arrayListOf<Task>()
 
 }
