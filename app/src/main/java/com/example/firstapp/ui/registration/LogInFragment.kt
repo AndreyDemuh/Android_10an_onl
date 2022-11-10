@@ -4,11 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.firstapp.*
 import com.example.firstapp.databinding.FragmentLogInBinding
+import com.example.firstapp.repositories.SharePreferencesRepository
 import com.example.firstapp.ui.fragments.TaskFragment
-//import com.example.firstapp.ui.TaskActivity
 
 class LogInFragment : Fragment() {
 
@@ -21,7 +22,6 @@ class LogInFragment : Fragment() {
     ): View? {
         binding = FragmentLogInBinding.inflate(inflater)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -74,15 +74,19 @@ class LogInFragment : Fragment() {
         } ?: return null
     }
 
-
     fun onLogIn() {
-//        val intent = Intent(context, TaskActivity::class.java)
-        if (validate())
+        val sharedPreferencesRepository = SharePreferencesRepository(requireContext())
+        if (validate() && sharedPreferencesRepository.getUserEmail() != null) {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.container, TaskFragment())
                 .addToBackStack("")
                 .commit()
-//        startActivity(intent)
+        } else if (!(sharedPreferencesRepository.getUserEmail()
+                .equals(binding.emailEditText.text.toString()))
+        ) {
+            Toast.makeText(requireContext(), R.string.user_no_registration, Toast.LENGTH_SHORT)
+                .show()
+        }
     }
 
     fun onClickReturnSignUp() {

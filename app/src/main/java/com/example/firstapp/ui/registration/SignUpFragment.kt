@@ -1,16 +1,19 @@
 package com.example.firstapp.ui.registration
 
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.firstapp.*
-
+import com.example.firstapp.dataBase.TaskDataBase
 import com.example.firstapp.databinding.FragmentSignUpBinding
+import com.example.firstapp.model.User
+import com.example.firstapp.repositories.SharePreferencesRepository
 import com.example.firstapp.ui.fragments.TaskFragment
 
-//import com.example.firstapp.ui.TaskActivity
 
 class SignUpFragment : Fragment() {
 
@@ -33,7 +36,7 @@ class SignUpFragment : Fragment() {
         binding.btnSignUp.setOnClickListener { onSignUp() }
     }
 
-    //    функция проверяющая результат валидации полей Name, Lastname, Email и Password
+    //функция проверяющая результат валидации полей Name, Lastname, Email и Password
     private fun validate(): Boolean {
         val isPasswordValid = validatePassword()
         val isEmailValid = validateEmail()
@@ -115,22 +118,38 @@ class SignUpFragment : Fragment() {
         } ?: return null
     }
 
-
     fun onSignUp() {
-//        val intent = Intent(context, TaskActivity::class.java)
-        if (validate())
-//            startActivity(intent)
-        parentFragmentManager.beginTransaction()
-            .replace(R.id.container, TaskFragment())
-            .addToBackStack("TaskFragment")
-            .commit()
+        val sharedPreferencesRepository = SharePreferencesRepository(requireContext())
+        if (validate()) {
+            if (sharedPreferencesRepository.getUserEmail() == null || ((sharedPreferencesRepository.getUserEmail() != null) &&
+                        (!(sharedPreferencesRepository.getUserEmail()
+                            .equals(binding.emailSignUpEditText.text.toString()))))
+            ) {
+                TaskDataBase.db.userDao().addUser(
+                    User(binding.emailSignUpEditText.text.toString())
+                )
+                sharedPreferencesRepository.setUserName(binding.firstNameEditText.text.toString())
+                sharedPreferencesRepository.setUserEmail(binding.emailSignUpEditText.text.toString())
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.container, TaskFragment())
+                    .addToBackStack("")
+                    .commit()
+            } else if (sharedPreferencesRepository.getUserEmail()
+                    .equals(binding.emailSignUpEditText.text.toString()) && sharedPreferencesRepository.getUserEmail() != null
+            ) {
+                Toast.makeText(
+                    requireContext(),
+                    R.string.app_have_this_user,
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
     }
 
     fun onClickLogIn() {
         parentFragmentManager.beginTransaction()
             .replace(R.id.container, LogInFragment())
-            .addToBackStack("LogInFragment")
+            .addToBackStack("")
             .commit()
     }
 }
-

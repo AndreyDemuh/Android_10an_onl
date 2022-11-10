@@ -8,51 +8,20 @@
     <FrameLayout
         android:id="@+id/fragmentAddTask_11"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:background="@color/backgroungMain"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation_menu"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/imageArrow"
-            android:layout_width="@dimen/dp_16"
-            android:layout_height="@dimen/dp_15"
-            android:layout_marginStart="@dimen/dp_16"
-            android:layout_marginTop="@dimen/dp_50"
-            android:background="@drawable/arrow_back_btn"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.076"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_back"
-            android:layout_width="@dimen/dp_63"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_40"
-            android:layout_marginTop="@dimen/dp_32"
-            android:background="@null"
-            android:padding="@dimen/dp_1"
-            android:text="Back"
-            android:textAllCaps="false"
-            android:textColor="@color/hintText"
-            android:textSize="@dimen/sp_18"
-            app:layout_constraintEnd_toEndOf="@dimen/dp_32"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textAddNote"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_16"
-            android:layout_marginTop="@dimen/dp_82"
-            android:layout_marginEnd="@dimen/dp_250"
-            android:text="@string/add_note"
+            android:layout_marginStart="@dimen/dp_17"
+            android:layout_marginTop="25dp"
+            android:text="@string/add_task"
             android:textColor="@color/black"
-            android:textSize="@dimen/sp_25"
+            android:textSize="@dimen/sp_39"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -107,23 +76,37 @@
             app:layout_constraintTop_toBottomOf="@+id/messageContainer" />
 
 
-        <EditText
-            android:id="@+id/editTextDate"
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/btnDatePicker"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_50"
-            android:layout_marginTop="380dp"
-            android:background="@drawable/background_text_field"
-            android:ems="10"
-            android:gravity=""
-            android:hint="@string/dateHint"
-            android:inputType="date"
-            android:minHeight="@dimen/dp_48"
-            android:text=""
-            app:layout_constraintEnd_toEndOf="@+id/messageContainer"
-            app:layout_constraintStart_toStartOf="@+id/messageContainer"
-            app:layout_constraintTop_toBottomOf="@+id/messageContainer" />
+            android:layout_marginTop="@dimen/dp_416"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/choose_date"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_18" />
+
+        <ImageView
+            android:id="@+id/img_calendar"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_40"
+            android:layout_marginStart="@dimen/dp_180"
+            android:layout_marginTop="@dimen/dp_470"
+            android:background="@drawable/calendar" />
 
     </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation_menu"
+        style="@style/Widget.MaterialComponents.BottomNavigationView.PrimarySurface"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu_bottom_navigation" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

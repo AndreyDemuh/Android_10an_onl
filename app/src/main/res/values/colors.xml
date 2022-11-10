@@ -14,6 +14,7 @@
     <color name="backgroungMain">#E5E5E5</color>
     <color name="backgroungCardView">#3DFFFFFF</color>
     <color name="bg_item_rw">#3DFBB3F2</color>
+    <color name="bg_add_task_successfull">#FF41A545</color>
 
     //для bottomsheetfragment
     <color name="colorPrimary">#2196F3</color>

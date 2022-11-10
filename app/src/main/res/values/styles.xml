@@ -68,4 +68,10 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="ProfileNavigationText">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/sp_39</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>

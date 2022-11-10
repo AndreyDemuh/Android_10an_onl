@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,48 +9,25 @@
     <FrameLayout
         android:id="@+id/fragmentTask_9"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/backgroungMain">
+        android:layout_height="0dp"
+        android:background="@color/backgroungMain"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation_menu"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_100"
             android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/imageArrow"
-                android:layout_width="@dimen/dp_16"
-                android:layout_height="@dimen/dp_15"
-                android:layout_marginStart="@dimen/dp_16"
-                android:layout_marginTop="@dimen/dp_50"
-                android:layout_marginEnd="@dimen/dp_8"
-                android:background="@drawable/arrow_back_btn" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_logout"
-                android:layout_width="@dimen/dp_63"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dp_8"
-                android:layout_marginTop="@dimen/dp_32"
-                android:background="@null"
-                android:padding="@dimen/dp_1"
-                android:text="Logout"
-                android:textAllCaps="false"
-                android:textColor="@color/hintText"
-                android:textSize="@dimen/sp_18" />
+                android:layout_marginStart="@dimen/dp_17"
+                android:layout_marginTop="25dp"
+                android:text="@string/all_task"
+                style="@style/ProfileNavigationText">
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_add_new"
-                android:layout_width="@dimen/dp_74"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dp_183"
-                android:layout_marginTop="@dimen/dp_32"
-                android:background="@null"
-                android:padding="@dimen/dp_1"
-                android:text="@string/add_new"
-                android:textAllCaps="false"
-                android:textColor="@color/hintText"
-                android:textSize="@dimen/sp_18" />
+            </TextView>
 
         </LinearLayout>
 
@@ -62,20 +39,20 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/tvSorted"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dp_24"
                 android:gravity="center|start"
-                android:text="@string/TvSorted" />
+                android:textSize="@dimen/sp_12"
+                android:text="@string/NameAccount" />
 
-            <Spinner
-                android:id="@+id/spinner_category_task"
+            <TextView
+                android:id="@+id/tvAccountName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dp_8"
-                android:gravity="end"
-                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+                android:text="тут имя пользователя"
+                android:gravity="end"/>
 
         </LinearLayout>
 
@@ -94,4 +71,14 @@
 
     </FrameLayout>
 
-</LinearLayout>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation_menu"
+        style="@style/Widget.MaterialComponents.BottomNavigationView.PrimarySurface"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu_bottom_navigation" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

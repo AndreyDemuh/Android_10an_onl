@@ -1,50 +1,32 @@
 package com.example.firstapp.ui.fragments
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.firstapp.R
-import com.example.firstapp.TaskViewModel
-import com.example.firstapp.databinding.FragmentTaskBinding
-import com.example.firstapp.repositories.SharePreferencesRepository
-import com.example.firstapp.ui.adapter.TaskRecyclerAdapter
+import com.example.firstapp.dataBase.TaskDataBase
+import com.example.firstapp.databinding.FragmentSearchTaskBinding
+import com.example.firstapp.model.Task
 import com.example.firstapp.ui.taskmanagement.AddTaskFragment
-import com.example.firstapp.ui.fragments.TaskInfoFragment.Companion.getTaskInfoInstance
 
-class TaskFragment : Fragment() {
 
-    private lateinit var binding: FragmentTaskBinding
-    private val viewModel: TaskViewModel by activityViewModels()
-    private var rcTaskView: RecyclerView? = null
+class SearchTaskFragment : Fragment() {
+
+    private lateinit var binding: FragmentSearchTaskBinding
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentTaskBinding.inflate(inflater)
+        binding = FragmentSearchTaskBinding.inflate(inflater)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val sharePreferencesRepository = SharePreferencesRepository(requireContext())
-        binding.tvAccountName.text = sharePreferencesRepository.getUserName()
-
-        rcTaskView = binding.rcTaskView
-        viewModel.listTaskVM.observe(viewLifecycleOwner) {
-            (rcTaskView?.adapter as? TaskRecyclerAdapter)?.addNewTask(it)
-        }
-
-        viewModel.getTask()
-
-        binding.tvAccountName.text = sharePreferencesRepository.getUserName()
 
         binding.bottomNavigationMenu.setOnNavigationItemSelectedListener {
             when (it.itemId) {
@@ -75,14 +57,7 @@ class TaskFragment : Fragment() {
                 else -> false
             }
         }
-
-        rcTaskView?.run {
-            adapter = TaskRecyclerAdapter {
-                getTaskInfoInstance(it.nameTask, it.messageTask, it.data)
-                    .show(childFragmentManager, "")
-            }
-            layoutManager = LinearLayoutManager(requireContext())
-        }
     }
-}
 
+    val  searchList = TaskDataBase.db.taskDao().selectAllTask()
+}
