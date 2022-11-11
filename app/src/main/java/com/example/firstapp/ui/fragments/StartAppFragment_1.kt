@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.example.firstapp.R
 import com.example.firstapp.databinding.FragmentStartAppBinding
 import com.example.firstapp.ui.registration.LogInFragment
+import com.example.firstapp.ui.viewpagefragment.ViewPageFragment
 
 class StartAppFragment_1 : Fragment() {
 
@@ -26,7 +27,7 @@ class StartAppFragment_1 : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.buttonStart.setOnClickListener {
             parentFragmentManager.beginTransaction()
-                .replace(R.id.container, FindProjectFragment_2())
+                .replace(R.id.container, ViewPageFragment())
                 .addToBackStack("")
                 .commit()
         }

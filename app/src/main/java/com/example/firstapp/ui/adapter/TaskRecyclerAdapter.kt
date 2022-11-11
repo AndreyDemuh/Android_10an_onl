@@ -40,7 +40,7 @@ class TaskRecyclerAdapter(
 
     /** добавляет созданную задачу в наш список*/
     @SuppressLint("NotifyDataSetChanged")
-    fun addTask(taskList: ArrayList<Task>) {
+    fun addNewTask(taskList: ArrayList<Task>) {
         this.taskList = taskList
         notifyDataSetChanged()
     }
