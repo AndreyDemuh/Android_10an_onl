@@ -1,4 +1,4 @@
-package com.example.firstapp.ui
+package com.example.firstapp.ui.fragments
 
 import android.os.Bundle
 import android.os.Handler
@@ -9,11 +9,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.firstapp.R
 import com.example.firstapp.constance.Constance
-import com.example.firstapp.databinding.FragmentChatBinding
+import com.example.firstapp.databinding.FragmentWorkHardBinding
 
-class ChatFragment_4 : Fragment() {
+class WorkHardFragment_5 : Fragment() {
 
-    private lateinit var binding : FragmentChatBinding
+    private lateinit var binding: FragmentWorkHardBinding
     val handler = Handler(Looper.getMainLooper())
 
     override fun onCreateView(
@@ -21,25 +21,25 @@ class ChatFragment_4 : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentChatBinding.inflate(inflater)
+        binding = FragmentWorkHardBinding.inflate(inflater)
         return binding.root
 
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnSkip4.setOnClickListener {
+        binding.btnSkip5.setOnClickListener {
             parentFragmentManager.beginTransaction()
-                .replace(R.id.container, WorkHardFragment_5())
-                .addToBackStack("WorkFragment")
+                .replace(R.id.container, EnjoyFragment_6())
+                .addToBackStack("")
                 .commit()
             handler.removeCallbacksAndMessages(null);
         }
 
         handler.postDelayed({
             parentFragmentManager.beginTransaction()
-                .replace(R.id.container, WorkHardFragment_5())
-                .addToBackStack("WorkFragment")
+                .replace(R.id.container, EnjoyFragment_6())
+                .addToBackStack("")
                 .commit()
         }, Constance.TIME_SLIDE_ACTIVITY)
     }

@@ -1,4 +1,4 @@
-package com.example.firstapp.ui
+package com.example.firstapp.ui.fragments
 
 import android.os.Bundle
 import android.os.Handler
@@ -9,11 +9,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.firstapp.R
 import com.example.firstapp.constance.Constance
-import com.example.firstapp.databinding.FragmentWorkHardBinding
+import com.example.firstapp.databinding.FragmentEnjoyBinding
+import com.example.firstapp.ui.registration.SignUpFragment
 
-class WorkHardFragment_5 : Fragment() {
+class EnjoyFragment_6 : Fragment() {
 
-    private lateinit var binding : FragmentWorkHardBinding
+    private lateinit var binding: FragmentEnjoyBinding
     val handler = Handler(Looper.getMainLooper())
 
     override fun onCreateView(
@@ -21,27 +22,26 @@ class WorkHardFragment_5 : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentWorkHardBinding.inflate(inflater)
+        binding = FragmentEnjoyBinding.inflate(inflater)
         return binding.root
 
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnSkip5.setOnClickListener {
+        binding.btnSkip6.setOnClickListener {
             parentFragmentManager.beginTransaction()
-                .replace(R.id.container, EnjoyFragment_6())
-                .addToBackStack("EnjoyFragment")
+                .replace(R.id.container, SignUpFragment())
+                .addToBackStack("")
                 .commit()
             handler.removeCallbacksAndMessages(null);
         }
 
         handler.postDelayed({
             parentFragmentManager.beginTransaction()
-                .replace(R.id.container, EnjoyFragment_6())
-                .addToBackStack("EnjoyFragment")
+                .replace(R.id.container, SignUpFragment())
+                .addToBackStack("")
                 .commit()
         }, Constance.TIME_SLIDE_ACTIVITY)
     }
 }
-

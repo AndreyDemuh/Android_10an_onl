@@ -23,7 +23,7 @@
     <string name="add_note">Add note</string>
     <string name="dateHint">ДД.ММ.ГГГГ</string>
     <string name="messageHint">Message</string>
-    <string name="titlesHint">Titles</string>
+    <string name="titlesHint">Task</string>
     <string name="add_new">Add new</string>
     <string name="title">Title</string>
     <string name="addButton">Add</string>
@@ -56,7 +56,9 @@
     <string name="delete">Удалить</string>
     <string name="cancel">Отмена</string>
     <string name="back">Back</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="task_information">Task information</string>
+    <string name="plan_date">Запланированная дата:</string>
 
 </resources>

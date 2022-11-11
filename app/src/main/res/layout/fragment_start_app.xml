@@ -6,7 +6,7 @@
     <FrameLayout
         android:id="@+id/startFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -27,20 +27,20 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_start"
+        style="@style/ButtonLayoutStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|center"
         android:layout_marginTop="@dimen/dp_602"
-        android:text="@string/discover_the_platform"
-        style="@style/ButtonLayoutStyle" />
+        android:text="@string/discover_the_platform" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_loginLauncher"
+        style="@style/TextRegistrationLayoutStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|center"
         android:layout_marginTop="@dimen/dp_693"
-        android:text="@string/you_have_an_account_log_in"
-        style="@style/TextRegistrationLayoutStyle" />
+        android:text="@string/you_have_an_account_log_in" />
 
 </FrameLayout>

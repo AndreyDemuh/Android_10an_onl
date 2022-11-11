@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.firstapp.R
 import com.example.firstapp.databinding.ActivityMainBinding
+import com.example.firstapp.ui.fragments.StartAppFragment_1
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.container, StartAppFragment_1())
-            .addToBackStack("MainActivity")
+            .addToBackStack("")
             .commit()
 
     }

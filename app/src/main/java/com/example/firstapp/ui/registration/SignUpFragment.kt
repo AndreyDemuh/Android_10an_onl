@@ -1,6 +1,5 @@
 package com.example.firstapp.ui.registration
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,11 +8,13 @@ import androidx.fragment.app.Fragment
 import com.example.firstapp.*
 
 import com.example.firstapp.databinding.FragmentSignUpBinding
-import com.example.firstapp.ui.TaskActivity
+import com.example.firstapp.ui.fragments.TaskFragment
+
+//import com.example.firstapp.ui.TaskActivity
 
 class SignUpFragment : Fragment() {
 
-    private lateinit var binding : FragmentSignUpBinding
+    private lateinit var binding: FragmentSignUpBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,7 +33,7 @@ class SignUpFragment : Fragment() {
         binding.btnSignUp.setOnClickListener { onSignUp() }
     }
 
-//    функция проверяющая результат валидации полей Name, Lastname, Email и Password
+    //    функция проверяющая результат валидации полей Name, Lastname, Email и Password
     private fun validate(): Boolean {
         val isPasswordValid = validatePassword()
         val isEmailValid = validateEmail()
@@ -43,9 +44,9 @@ class SignUpFragment : Fragment() {
     }
 
     //функция принимающая результат валидации поля name (пустое либо нет)
-    private fun validateName(): String?{
+    private fun validateName(): String? {
         val nameInputLayout = binding.firstNameContainer
-        nameInputLayout.editText?.let{
+        nameInputLayout.editText?.let {
             val result = validateNames(it.text.toString())
             return when (result) {
                 is Invalid -> {
@@ -57,13 +58,13 @@ class SignUpFragment : Fragment() {
                     null
                 }
             }
-        }?: return null
+        } ?: return null
     }
 
     //функция принимающая результат валидации поля lastname (пустое либо нет)
-    private fun validateLastname(): String?{
+    private fun validateLastname(): String? {
         val lastnameInputLayout = binding.lastNameSignUpContainer
-        lastnameInputLayout.editText?.let{
+        lastnameInputLayout.editText?.let {
             val result = validateLastNames(it.text.toString())
             return when (result) {
                 is Invalid -> {
@@ -75,13 +76,13 @@ class SignUpFragment : Fragment() {
                     null
                 }
             }
-        }?: return null
+        } ?: return null
     }
 
     //функция принимающая результат валидации поля password (пустое либо нет)
-    private fun validatePassword(): String?{
+    private fun validatePassword(): String? {
         val passwordInputLayout = binding.passwordSignUpContainer
-        passwordInputLayout.editText?.let{
+        passwordInputLayout.editText?.let {
             val result = validatePasswords(it.text.toString())
             return when (result) {
                 is Invalid -> {
@@ -93,13 +94,13 @@ class SignUpFragment : Fragment() {
                     null
                 }
             }
-        }?: return null
+        } ?: return null
     }
 
     //функция принимающая результат валидации поля email (пустое либо нет)
-    private fun validateEmail(): String?{
+    private fun validateEmail(): String? {
         val emailInputLayout = binding.emailSignUpContainer
-        emailInputLayout.editText?.let{
+        emailInputLayout.editText?.let {
             val result = validateEmails(it.text.toString())
             return when (result) {
                 is Invalid -> {
@@ -111,21 +112,21 @@ class SignUpFragment : Fragment() {
                     null
                 }
             }
-        }?: return null
+        } ?: return null
     }
 
 
-    fun onSignUp(){
-        val intent = Intent(context, TaskActivity::class.java)
-        if(validate())
-            startActivity(intent)
-//        parentFragmentManager.beginTransaction()
-//            .replace(R.id.container, TaskActivity::class.java)
-//            .addToBackStack("TaskFragment")
-//            .commit()
+    fun onSignUp() {
+//        val intent = Intent(context, TaskActivity::class.java)
+        if (validate())
+//            startActivity(intent)
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.container, TaskFragment())
+            .addToBackStack("TaskFragment")
+            .commit()
     }
 
-    fun onClickLogIn(){
+    fun onClickLogIn() {
         parentFragmentManager.beginTransaction()
             .replace(R.id.container, LogInFragment())
             .addToBackStack("LogInFragment")
