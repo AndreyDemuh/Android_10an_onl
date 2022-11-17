@@ -4,24 +4,24 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import com.example.firstapp.model.Task
+import com.example.firstapp.model.TaskEntity
 
 // интерфейс DAO с описанием общих методов, которые будут использоваться при взаимодействии с базой данных
 @Dao
 interface TaskDao {
 
     @Insert                               //Метод с аннотацией Insert вставляет/добавляет объект в базу данных.
-    fun insertTask(task: Task)
+    suspend fun insertTask(task: TaskEntity)
 
-    @Delete                              //Метод с аннотацией Delete будет удалять объекты.
-    fun deleteTask(task: Task)
+    @Query("DELETE FROM tasks WHERE id = (:id)")   //Метод с аннотацией Delete будет удалять объекты.
+    suspend fun deleteTask(id: Int)
 
-//    @Delete
-//    fun deleteAllTask(): List<Task>
+    @Query("DELETE FROM tasks ") //Метод на удаление всех задач
+    suspend fun deleteAllTask()
 
-    @Query("SELECT * FROM Task")        //Метод с аннотацией Query позволяет достать записи из базы данных по определенному запросу
-    fun selectAllTask(): List<Task>
+    @Query("SELECT * FROM tasks")        //Метод с аннотацией Query позволяет достать записи из базы данных по определенному запросу
+    suspend fun selectAllTask(): List<TaskEntity>
 
-    @Query("SELECT * FROM Task WHERE userEmail LIKE :email")
-    fun selectTaskByUser(email: String): List<Task>
+    @Query("SELECT * FROM tasks WHERE userEmail LIKE :email")
+    fun selectTaskByUser(email: String): List<TaskEntity>
 }

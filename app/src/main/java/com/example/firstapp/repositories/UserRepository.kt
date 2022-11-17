@@ -7,17 +7,17 @@ import com.example.firstapp.model.User
 class UserRepository {
 
     //добавляем User'а в базу данных
-    fun addUser(user: User) {
+    suspend fun addUsers(user: User) {
         TaskDataBase.db.userDao().addUser(user)
     }
 
     //удаляем User'а из базы данных
-//    fun deleteUser(user: User) {
-//        TaskDataBase.db.userDao().deleteUser(user)
-//    }
+    suspend fun deleteUser(email: String) {
+        TaskDataBase.db.userDao().deleteUser(email)
+    }
 
     //функция которая умеет забирать перечень наших созданных задач
-    fun getListUser(): ArrayList<User> {
+    suspend fun getListUser(): ArrayList<User> {
         return TaskDataBase.db.userDao().getAllUser() as ArrayList<User>
     }
 }

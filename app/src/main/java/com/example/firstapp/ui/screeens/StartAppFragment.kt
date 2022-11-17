@@ -1,4 +1,4 @@
-package com.example.firstapp.ui.fragments
+package com.example.firstapp.ui.screeens
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.firstapp.R
 import com.example.firstapp.databinding.FragmentStartAppBinding
-import com.example.firstapp.ui.registration.LogInFragment
+import com.example.firstapp.ui.screeens.registration.LogInFragment
 import com.example.firstapp.ui.viewpagefragment.ViewPageFragment
 
-class StartAppFragment_1 : Fragment() {
+class StartAppFragment : Fragment() {
 
     private lateinit var binding: FragmentStartAppBinding
 

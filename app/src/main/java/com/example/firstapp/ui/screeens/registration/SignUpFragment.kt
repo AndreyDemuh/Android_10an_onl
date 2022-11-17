@@ -1,4 +1,4 @@
-package com.example.firstapp.ui.registration
+package com.example.firstapp.ui.screeens.registration
 
 
 import android.os.Bundle
@@ -7,17 +7,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import com.example.firstapp.*
-import com.example.firstapp.dataBase.TaskDataBase
 import com.example.firstapp.databinding.FragmentSignUpBinding
-import com.example.firstapp.model.User
 import com.example.firstapp.repositories.SharePreferencesRepository
-import com.example.firstapp.ui.fragments.TaskFragment
+import com.example.firstapp.ui.screeens.TaskFragment
+import com.example.firstapp.ui.screeens.taskmanagement.AddUserViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
 class SignUpFragment : Fragment() {
 
     private lateinit var binding: FragmentSignUpBinding
+    private val viewModel: AddUserViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -121,13 +125,16 @@ class SignUpFragment : Fragment() {
     fun onSignUp() {
         val sharedPreferencesRepository = SharePreferencesRepository(requireContext())
         if (validate()) {
-            if (sharedPreferencesRepository.getUserEmail() == null || ((sharedPreferencesRepository.getUserEmail() != null) &&
+            sharedPreferencesRepository.setUserEmail(binding.emailSignUpEditText.text.toString())
+            if ((sharedPreferencesRepository.getUserEmail() == null || (sharedPreferencesRepository.getUserEmail() != null)) ||
+                ((sharedPreferencesRepository.getUserEmail() != null) &&
                         (!(sharedPreferencesRepository.getUserEmail()
                             .equals(binding.emailSignUpEditText.text.toString()))))
             ) {
-                TaskDataBase.db.userDao().addUser(
-                    User(binding.emailSignUpEditText.text.toString())
-                )
+                lifecycleScope.launch(Dispatchers.IO) {
+                    sharedPreferencesRepository.getUserEmail()
+                        ?.let { viewModel.addUserVM(it) }
+                }
                 sharedPreferencesRepository.setUserName(binding.firstNameEditText.text.toString())
                 sharedPreferencesRepository.setUserEmail(binding.emailSignUpEditText.text.toString())
                 parentFragmentManager.beginTransaction()
@@ -135,7 +142,7 @@ class SignUpFragment : Fragment() {
                     .addToBackStack("")
                     .commit()
             } else if (sharedPreferencesRepository.getUserEmail()
-                    .equals(binding.emailSignUpEditText.text.toString()) && sharedPreferencesRepository.getUserEmail() != null
+                    .equals(binding.emailSignUpEditText.text.toString())
             ) {
                 Toast.makeText(
                     requireContext(),

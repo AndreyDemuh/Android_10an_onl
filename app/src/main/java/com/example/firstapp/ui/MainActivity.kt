@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.firstapp.R
 import com.example.firstapp.databinding.ActivityMainBinding
-import com.example.firstapp.ui.fragments.StartAppFragment_1
+import com.example.firstapp.ui.screeens.StartAppFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,24 +16,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportFragmentManager.beginTransaction()
-            .replace(R.id.container, StartAppFragment_1())
+            .replace(R.id.container, StartAppFragment())
             .addToBackStack("")
             .commit()
-
     }
 }
 
-//        supportFragmentManager.beginTransaction()
-//            .replace(R.id.container, FindProject_fragment_2())
-//            .commit()
-
-//        val buttonStart = findViewById<Button>(R.id.button_start)
-//        buttonStart.setOnClickListener{
-//            startActivity(Intent(this, FindProjectActivity::class.java))
-//        }
-//        val buttonLogin = findViewById<Button>(R.id.btn_loginLauncher)
-//        buttonLogin.setOnClickListener{
-//            startActivity(Intent(this, LogInActivity::class.java))
-//        }
 
 

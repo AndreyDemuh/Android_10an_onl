@@ -13,7 +13,6 @@
         app:layout_constraintBottom_toTopOf="@id/bottom_navigation_menu"
         app:layout_constraintTop_toTopOf="parent">
 
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -75,7 +74,6 @@
             app:layout_constraintStart_toStartOf="@+id/messageContainer"
             app:layout_constraintTop_toBottomOf="@+id/messageContainer" />
 
-
         <TextView
             android:id="@+id/btnDatePicker"
             android:layout_width="match_parent"
@@ -96,6 +94,32 @@
             android:layout_marginTop="@dimen/dp_470"
             android:background="@drawable/calendar" />
 
+        <TextView
+            android:id="@+id/tvReportAddTaskOk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="530dp"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/add_task_seccessfull"
+            android:textAllCaps="false"
+            android:visibility="invisible"
+            android:textColor="@color/bg_add_task_successfull"
+            android:textSize="@dimen/sp_18" />
+
+        <TextView
+            android:id="@+id/tvReportAddTaskFalse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="530dp"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/add_task_error"
+            android:textAllCaps="false"
+            android:visibility="invisible"
+            android:textColor="@color/errorHelperText"
+            android:textSize="@dimen/sp_18" />
+
     </FrameLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -107,6 +131,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/menu_bottom_navigation" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

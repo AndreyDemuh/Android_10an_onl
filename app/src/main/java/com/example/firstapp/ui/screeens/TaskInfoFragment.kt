@@ -1,4 +1,4 @@
-package com.example.firstapp.ui.fragments
+package com.example.firstapp.ui.screeens
 
 import android.app.AlertDialog
 import android.content.Intent
@@ -8,20 +8,26 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import com.example.firstapp.R
+import com.example.firstapp.dataBase.TaskDataBase
 import com.example.firstapp.databinding.FragmentBottomSheetInfoTaskBinding
-import com.example.firstapp.model.Task
-import com.example.firstapp.ui.taskmanagement.DeleteTaskViewModel
+import com.example.firstapp.ui.screeens.taskmanagement.ManagementTaskViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 private const val TASK_EXTRA = "task"
 private const val MESSAGE_EXTRA = "message"
 private const val DATE_EXTRA = "date"
+private const val TASK_ID = "task_id"
+
 
 class TaskInfoFragment : BottomSheetDialogFragment() {
 
     private lateinit var binding: FragmentBottomSheetInfoTaskBinding
-    private val viewModel: DeleteTaskViewModel by activityViewModels()
+    private var taskId: Int? = null
+    private val viewModel: ManagementTaskViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,16 +48,23 @@ class TaskInfoFragment : BottomSheetDialogFragment() {
         binding.taskInfoBottomSheet.text = arguments?.getString(TASK_EXTRA)
         binding.messageInfoBottomSheet.text = arguments?.getString(MESSAGE_EXTRA)
         binding.planDateBottomSheet.text = arguments?.getString(DATE_EXTRA)
+        taskId = arguments?.getInt(TASK_ID)
     }
 
     companion object {
 
-        fun getTaskInfoInstance(tasks: String, message: String, date: String): TaskInfoFragment {
+        fun getTaskInfoInstance(
+            tasks: String,
+            message: String,
+            date: String,
+            id: Int
+        ): TaskInfoFragment {
             return TaskInfoFragment().apply {
                 arguments = bundleOf(
                     TASK_EXTRA to tasks,
                     MESSAGE_EXTRA to message,
-                    DATE_EXTRA to date
+                    DATE_EXTRA to date,
+                    TASK_ID to id
                 )
             }
         }
@@ -71,10 +84,11 @@ class TaskInfoFragment : BottomSheetDialogFragment() {
         AlertDialog.Builder(requireContext())
             .setMessage(R.string.dialog_message)
             .setPositiveButton(R.string.btn_delete) { _, _ ->
-                parentFragmentManager.beginTransaction()
-                    .replace(R.id.container, TaskFragment())
-                    .addToBackStack("")
-                    .commit()
+                lifecycleScope.launch(Dispatchers.IO) { viewModel.deleteTask(taskId!!) }
+//                parentFragmentManager.beginTransaction()
+//                    .replace(R.id.container, TaskFragment())
+//                    .addToBackStack("")
+//                    .commit()
             }
             .setNegativeButton(R.string.btn_cancel) { _, _ ->
 
