@@ -36,7 +36,9 @@ class TaskRecyclerAdapter(
     }
 
     /** возвращает общее количество элементов списка*/
-    override fun getItemCount(): Int = taskList.size
+    override fun getItemCount(): Int {
+        return taskList.size
+    }
 
     /** добавляет созданную задачу в наш список*/
     @SuppressLint("NotifyDataSetChanged")
@@ -44,4 +46,5 @@ class TaskRecyclerAdapter(
         this.taskList = taskList
         notifyDataSetChanged()
     }
+
 }

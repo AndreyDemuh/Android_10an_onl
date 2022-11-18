@@ -7,11 +7,6 @@
         android:title="@string/task_menu" />
 
     <item
-        android:id="@+id/searchMenu"
-        android:icon="@drawable/search"
-        android:title="@string/search_menu" />
-
-    <item
         android:id="@+id/addTaskMenu"
         android:icon="@drawable/addtask"
         android:title="@string/add_task_menu" />

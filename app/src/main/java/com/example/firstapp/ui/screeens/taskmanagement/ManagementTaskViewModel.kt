@@ -1,12 +1,11 @@
-package com.example.firstapp.ui.taskmanagement
+package com.example.firstapp.ui.screeens.taskmanagement
 
 import androidx.lifecycle.ViewModel
-import com.example.firstapp.dataBase.TaskDataBase
-import com.example.firstapp.model.Task
+import com.example.firstapp.model.TaskEntity
 import com.example.firstapp.repositories.TaskRepository
 
 //создали класс реализующий работу вью модели на нашем View (у нас AddTaskFragment)
-class AddTaskViewModel : ViewModel() {
+class ManagementTaskViewModel : ViewModel() {
 
     //создали переменную repository, которая ссылается на слой TaskRepository()
     private val repository = TaskRepository()
@@ -16,8 +15,18 @@ class AddTaskViewModel : ViewModel() {
     var taskAdded: (() -> Unit)? = null
 
     //функция которая добавляет нашу созданную задачу(Task) и передаем ее в нашу базу данных (TaskDataBase)
-    fun addTaskVM(taskName: String, taskMessage: String, taskDate: String, userEmail: String) {
-        repository.addTasks(Task(0, taskName, taskMessage, taskDate, userEmail))
+    suspend fun addTaskVM(
+        taskName: String, taskMessage: String, taskDate: String, userEmail: String
+    ) {
+        repository.addTasks(TaskEntity(0, taskName, taskMessage, taskDate, userEmail))
         taskAdded?.invoke()
+    }
+
+    suspend fun deleteAllTask() {
+        repository.deleteAllListTasks()
+    }
+
+    suspend fun deleteTask(id: Int) {
+        repository.deleteTask(id)
     }
 }

@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.firstapp.R
 import com.example.firstapp.databinding.FragmentTabBinding
-import com.example.firstapp.ui.registration.SignUpFragment
+import com.example.firstapp.ui.screeens.registration.SignUpFragment
 
 class ViewPageFragment: Fragment() {
 

@@ -31,13 +31,13 @@ class SharePreferencesRepository(context: Context) {
 
     //функция для записи email пользователя
     fun setUserEmail(userName: String) {
-        userPreferences.edit {
+        globalPreferences.edit {
             putString(USER_EMAIL, userName)
         }
     }
     //функция для "получения" email пользователя
     fun getUserEmail(): String? {
-        return userPreferences.getString(USER_EMAIL, null)
+        return globalPreferences.getString(USER_EMAIL, null)
     }
 
     fun deleteUser(){

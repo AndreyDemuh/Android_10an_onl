@@ -1,29 +1,28 @@
 package com.example.firstapp.repositories
 
 import com.example.firstapp.dataBase.TaskDataBase
-import com.example.firstapp.model.Task
+import com.example.firstapp.model.TaskEntity
 
 //промежуточный слой между нашей ViewModel и базой данных (нашим TaskDataBase)
 class TaskRepository {
 
     //добавляем задачу в базу данных
-    fun addTasks(task: Task) {
+    suspend fun addTasks(task: TaskEntity) {
         TaskDataBase.db.taskDao().insertTask(task)
     }
 
     //удаляем задачу из базы данных
-    fun deleteTask(task: Task) {
-        TaskDataBase.db.taskDao().deleteTask(task)
+    suspend fun deleteTask(id: Int) {
+        TaskDataBase.db.taskDao().deleteTask(id)
     }
 
     //удаляем все задачи из базы данных
-//    fun deleteAllListTasks(): ArrayList<Task> {
-//        return TaskDataBase.db.taskDao().deleteAllTask() as ArrayList<Task>
-//    }
+    suspend fun deleteAllListTasks(){
+        return TaskDataBase.db.taskDao().deleteAllTask()
+    }
 
     //функция которая умеет забирать перечень наших созданных задач
-    fun getListTasks(): ArrayList<Task> {
-        val list = TaskDataBase.db.taskUserDao().getTaskByUser()
-        return TaskDataBase.db.taskDao().selectAllTask() as ArrayList<Task>
+    suspend fun getListTasks(): ArrayList<TaskEntity> {
+        return TaskDataBase.db.taskDao().selectAllTask() as ArrayList<TaskEntity>
     }
 }

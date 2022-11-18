@@ -4,18 +4,17 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import com.example.firstapp.model.Task
 import com.example.firstapp.model.User
 
 @Dao
 interface UserDao {
 
     @Insert
-    fun addUser(user: User)
+    suspend fun addUser(user: User)
 
-//    @Delete
-//    fun deleteUser(user: User)
+    @Query("DELETE FROM users WHERE email = (:email)")
+    suspend fun deleteUser(email: String)
 
-    @Query("SELECT * FROM user")
-    fun getAllUser(): List<User>
+    @Query("SELECT * FROM users")
+    suspend fun getAllUser(): List<User>
 }

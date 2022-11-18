@@ -1,4 +1,4 @@
-package com.example.firstapp.ui.registration
+package com.example.firstapp.ui.screeens.registration
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import com.example.firstapp.*
 import com.example.firstapp.databinding.FragmentLogInBinding
 import com.example.firstapp.repositories.SharePreferencesRepository
-import com.example.firstapp.ui.fragments.TaskFragment
+import com.example.firstapp.ui.screeens.TaskFragment
 
 class LogInFragment : Fragment() {
 
@@ -76,16 +76,20 @@ class LogInFragment : Fragment() {
 
     fun onLogIn() {
         val sharedPreferencesRepository = SharePreferencesRepository(requireContext())
-        if (validate() && sharedPreferencesRepository.getUserEmail() != null) {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.container, TaskFragment())
-                .addToBackStack("")
-                .commit()
-        } else if (!(sharedPreferencesRepository.getUserEmail()
-                .equals(binding.emailEditText.text.toString()))
-        ) {
-            Toast.makeText(requireContext(), R.string.user_no_registration, Toast.LENGTH_SHORT)
-                .show()
+        if (validate()) {
+            if ((sharedPreferencesRepository.getUserEmail() != null) && (sharedPreferencesRepository.getUserEmail()
+                    .equals(binding.emailEditText.text.toString()))
+            ) {
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.container, TaskFragment())
+                    .addToBackStack("")
+                    .commit()
+            } else if (!(sharedPreferencesRepository.getUserEmail()
+                    .equals(binding.emailEditText.text.toString())) || (sharedPreferencesRepository.getUserEmail() == null)
+            ) {
+                Toast.makeText(requireContext(), R.string.user_no_registration, Toast.LENGTH_SHORT)
+                    .show()
+            }
         }
     }
 

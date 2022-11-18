@@ -82,6 +82,14 @@
     <string name="accaunt_deleted">Профиль удален</string>
     <string name="delete_accaunt">Удалить аккаунт?</string>
     <string name="logoyt_accaunt">Выйти из профиля?</string>
-    <string name="filter">фильтр</string>
+
+    <string name="delete_all_task">Удалить все задачи?</string>
+    <string name="all_task_deleted">Все задачи удалены</string>
+    <string name="logout">Logout</string>
+    <string name="delete_all_task_tv">Delete all task</string>
+    <string name="query_task">Количество задач</string>
+    <string name="delete_profile">Delete profile</string>
+    <string name="user_name">Title Task</string>
+    <string name="profile">Profile</string>
 
 </resources>

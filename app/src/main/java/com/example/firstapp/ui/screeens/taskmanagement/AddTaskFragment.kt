@@ -1,28 +1,28 @@
-package com.example.firstapp.ui.taskmanagement
+package com.example.firstapp.ui.screeens.taskmanagement
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import com.example.firstapp.*
+import com.example.firstapp.constance.Constance
 import com.example.firstapp.databinding.FragmentAddTaskBinding
 import com.example.firstapp.repositories.SharePreferencesRepository
-import com.example.firstapp.ui.fragments.*
+import com.example.firstapp.ui.screeens.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import java.util.*
 
 class AddTaskFragment : Fragment() {
 
     private lateinit var binding: FragmentAddTaskBinding
-    private val viewModel: AddTaskViewModel by activityViewModels()
-
+    private val viewModel: ManagementTaskViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,6 +36,7 @@ class AddTaskFragment : Fragment() {
     @SuppressLint("SetTextI18n", "SuspiciousIndentation")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         binding.btnAdd.setOnClickListener { onAddNewTask() }
 
         binding.imgCalendar.setOnClickListener {
@@ -67,12 +68,6 @@ class AddTaskFragment : Fragment() {
                 R.id.taskMenu -> {
                     parentFragmentManager.beginTransaction()
                         .replace(R.id.container, TaskFragment())
-                        .commit()
-                    true
-                }
-                R.id.searchMenu -> {
-                    parentFragmentManager.beginTransaction()
-                        .replace(R.id.container, SearchTaskFragment())
                         .commit()
                     true
                 }
@@ -132,26 +127,34 @@ class AddTaskFragment : Fragment() {
 
     //функция которая добавляет созданную задачу, при условии что поля провалидированы
     private fun onAddNewTask() = with(binding) {
-        val sharedPreferencesRepository = SharePreferencesRepository(requireContext())
-        val taskName = view?.findViewById<EditText>(R.id.titlesContainer)?.text.toString()
-        val taskMessage = view?.findViewById<EditText>(R.id.messageContainer)?.text.toString()
-        val taskDate = view?.findViewById<TextView>(R.id.btnDatePicker)?.text.toString()
         if (validate()) {
-            viewModel.addTaskVM(taskName, taskMessage, taskDate, sharedPreferencesRepository.getUserEmail()?:"")
-            
+            val sharedPreferencesRepository = SharePreferencesRepository(requireContext())
+            val taskName = titleContainer.text.toString()
+            val taskMessage = messageContainer.text.toString()
+            val taskDate = btnDatePicker.text.toString()
+            lifecycleScope.launch(Dispatchers.IO) {
+                viewModel.addTaskVM(
+                    taskName,
+                    taskMessage,
+                    taskDate,
+                    sharedPreferencesRepository.getUserEmail() ?: ""
+                )
+            }
+            binding.tvReportAddTaskOk.visibility = View.VISIBLE
+            lifecycleScope.launch(Dispatchers.Main) {
+                delay(Constance.TIME_SLIDE_INFO_ADD_TASK)
+                binding.tvReportAddTaskOk.visibility = View.GONE
+            }
             binding.titleContainer.setText("")
             binding.messageContainer.setText("")
             binding.btnDatePicker.setText(R.string.choose_date)
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.container, AddTaskSeccessfull())
-                .addToBackStack("")
-                .commit()
-        }
-        else{
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.container, AddTaskError())
-                .addToBackStack("")
-                .commit()
+        } else {
+
+            binding.tvReportAddTaskFalse.visibility = View.VISIBLE
+            lifecycleScope.launch(Dispatchers.Main) {
+                delay(Constance.TIME_SLIDE_INFO_ADD_TASK)
+                binding.tvReportAddTaskFalse.visibility = View.GONE
+            }
         }
     }
 }
