@@ -46,5 +46,4 @@ class TaskRecyclerAdapter(
         this.taskList = taskList
         notifyDataSetChanged()
     }
-
 }

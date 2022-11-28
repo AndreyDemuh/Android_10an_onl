@@ -14,21 +14,23 @@ import com.example.firstapp.constance.Constance
 import com.example.firstapp.databinding.FragmentAddTaskBinding
 import com.example.firstapp.repositories.SharePreferencesRepository
 import com.example.firstapp.ui.screeens.*
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.util.*
 
+@AndroidEntryPoint
 class AddTaskFragment : Fragment() {
 
     private lateinit var binding: FragmentAddTaskBinding
-    private val viewModel: ManagementTaskViewModel by activityViewModels()
+    private val viewModel: TaskViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentAddTaskBinding.inflate(inflater)
         return binding.root
     }
@@ -46,7 +48,7 @@ class AddTaskFragment : Fragment() {
             val myYDay = cal.get(Calendar.DAY_OF_MONTH)
             val datePickerDialog = DatePickerDialog(
                 requireContext(),
-                DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+                DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
                     binding.btnDatePicker.text =
                         "Дата: " + dayOfMonth + "/" + (month + 1) + "/" + year
                 },
@@ -131,12 +133,10 @@ class AddTaskFragment : Fragment() {
             val sharedPreferencesRepository = SharePreferencesRepository(requireContext())
             val taskName = titleContainer.text.toString()
             val taskMessage = messageContainer.text.toString()
-            val taskDate = btnDatePicker.text.toString()
             lifecycleScope.launch(Dispatchers.IO) {
                 viewModel.addTaskVM(
                     taskName,
                     taskMessage,
-                    taskDate,
                     sharedPreferencesRepository.getUserEmail() ?: ""
                 )
             }

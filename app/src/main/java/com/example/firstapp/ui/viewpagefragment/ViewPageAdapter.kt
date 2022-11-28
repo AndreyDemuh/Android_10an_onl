@@ -9,6 +9,7 @@ import com.example.firstapp.ui.viewpagefragment.PageFragment.Companion.getPageFr
 class ViewPageAdapter(fragmentManager: FragmentManager) :
     FragmentStatePagerAdapter(fragmentManager) {
 
+
     private val listViewPager = arrayListOf(
         getPageFragmentInstance(R.drawable.illustration_world, "Find project from companies \n everywhere in the world"),
         getPageFragmentInstance(R.drawable.illustration_dollars, "Make money while working \non awesome projects"),

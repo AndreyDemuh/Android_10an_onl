@@ -18,7 +18,7 @@ class StartAppFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentStartAppBinding.inflate(inflater)
         return binding.root
     }

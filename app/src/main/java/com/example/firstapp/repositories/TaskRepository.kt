@@ -2,9 +2,10 @@ package com.example.firstapp.repositories
 
 import com.example.firstapp.dataBase.TaskDataBase
 import com.example.firstapp.model.TaskEntity
+import javax.inject.Inject
 
 //промежуточный слой между нашей ViewModel и базой данных (нашим TaskDataBase)
-class TaskRepository {
+class TaskRepository @Inject constructor(){
 
     //добавляем задачу в базу данных
     suspend fun addTasks(task: TaskEntity) {

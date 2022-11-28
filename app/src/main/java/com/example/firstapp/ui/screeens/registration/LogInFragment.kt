@@ -10,7 +10,9 @@ import com.example.firstapp.*
 import com.example.firstapp.databinding.FragmentLogInBinding
 import com.example.firstapp.repositories.SharePreferencesRepository
 import com.example.firstapp.ui.screeens.TaskFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LogInFragment : Fragment() {
 
     private lateinit var binding: FragmentLogInBinding
@@ -19,7 +21,7 @@ class LogInFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentLogInBinding.inflate(inflater)
         return binding.root
     }
