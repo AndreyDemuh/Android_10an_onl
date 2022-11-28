@@ -46,6 +46,8 @@
                 android:layout_marginStart="@dimen/dp_24"
                 android:gravity="center|start"
                 android:text="@string/NameAccount"
+                android:textColor="@color/hintText"
+                android:textStyle="bold"
                 android:textSize="@dimen/sp_12" />
 
             <TextView
@@ -72,7 +74,10 @@
                 android:layout_height="@dimen/dp_48"
                 android:layout_marginStart="@dimen/dp_17"
                 android:background="@drawable/searchview_background"
-                android:hint="@string/text_search" />
+                android:hint="@string/text_search"
+                android:textColorHint="@color/hintText"
+                android:inputType="text"
+                android:autofillHints="" />
 
         </LinearLayout>
 
@@ -81,12 +86,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/dp_183"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.0"
             tools:listitem="@layout/task_item" />
 
     </FrameLayout>

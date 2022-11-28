@@ -5,7 +5,9 @@ import android.os.Bundle
 import com.example.firstapp.R
 import com.example.firstapp.databinding.ActivityMainBinding
 import com.example.firstapp.ui.screeens.StartAppFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding

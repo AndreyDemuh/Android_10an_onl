@@ -91,5 +91,6 @@
     <string name="delete_profile">Delete profile</string>
     <string name="user_name">Title Task</string>
     <string name="profile">Profile</string>
+    <string name="todo">TODO</string>
 
 </resources>

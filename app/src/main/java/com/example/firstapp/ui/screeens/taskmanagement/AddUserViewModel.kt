@@ -1,25 +1,23 @@
 package com.example.firstapp.ui.screeens.taskmanagement
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.example.firstapp.model.User
 import com.example.firstapp.repositories.UserRepository
-import kotlinx.coroutines.launch
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class AddUserViewModel : ViewModel() {
-
-    //создали переменную repository, которая ссылается на слой TaskRepository()
-    private val repository = UserRepository()
+@HiltViewModel
+class AddUserViewModel @Inject constructor(private val userRepository: UserRepository) : ViewModel() {
 
     var userAdded: (() -> Unit)? = null
 
     //функция которая добавляет Юзера и передаем ее в нашу базу данных (TaskDataBase)
     suspend fun addUserVM(userEmail: String) {
-        repository.addUsers(User(userEmail))
+        userRepository.addUsers(User(userEmail))
         userAdded?.invoke()
     }
     //функция которая добавляет нашу созданную задачу(Task) и передаем ее в нашу базу данных (TaskDataBase)
     suspend fun deleteUser(email: String) {
-        repository.deleteUser(email)
+        userRepository.deleteUser(email)
     }
 }

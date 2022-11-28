@@ -18,7 +18,8 @@
             <ImageView
                 android:id="@+id/imageView3"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:contentDescription="@string/todo" />
 
 
             <androidx.cardview.widget.CardView
@@ -106,7 +107,8 @@
                 android:text="@string/log_in"
                 app:layout_constraintBottom_toTopOf="@+id/btn_signUpReturn"
                 app:layout_constraintEnd_toEndOf="@+id/btn_signUpReturn"
-                app:layout_constraintStart_toStartOf="@+id/btn_signUpReturn" />
+                app:layout_constraintStart_toStartOf="@+id/btn_signUpReturn"
+                tools:ignore="DuplicateSpeakableTextCheck" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_signUpReturn"

@@ -10,30 +10,28 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.firstapp.R
-import com.example.firstapp.dataBase.TaskDataBase
 import com.example.firstapp.databinding.FragmentBottomSheetInfoTaskBinding
-import com.example.firstapp.ui.screeens.taskmanagement.ManagementTaskViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.util.Date
 
 private const val TASK_EXTRA = "task"
 private const val MESSAGE_EXTRA = "message"
 private const val DATE_EXTRA = "date"
 private const val TASK_ID = "task_id"
 
-
 class TaskInfoFragment : BottomSheetDialogFragment() {
 
     private lateinit var binding: FragmentBottomSheetInfoTaskBinding
     private var taskId: Int? = null
-    private val viewModel: ManagementTaskViewModel by activityViewModels()
+    private val viewModel: TaskViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentBottomSheetInfoTaskBinding.inflate(inflater)
         return binding.root
 
@@ -56,7 +54,7 @@ class TaskInfoFragment : BottomSheetDialogFragment() {
         fun getTaskInfoInstance(
             tasks: String,
             message: String,
-            date: String,
+            date: Date,
             id: Int
         ): TaskInfoFragment {
             return TaskInfoFragment().apply {
@@ -85,13 +83,8 @@ class TaskInfoFragment : BottomSheetDialogFragment() {
             .setMessage(R.string.dialog_message)
             .setPositiveButton(R.string.btn_delete) { _, _ ->
                 lifecycleScope.launch(Dispatchers.IO) { viewModel.deleteTask(taskId!!) }
-//                parentFragmentManager.beginTransaction()
-//                    .replace(R.id.container, TaskFragment())
-//                    .addToBackStack("")
-//                    .commit()
             }
             .setNegativeButton(R.string.btn_cancel) { _, _ ->
-
             }
             .show()
     }

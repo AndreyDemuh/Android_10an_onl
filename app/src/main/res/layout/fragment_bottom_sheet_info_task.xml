@@ -39,8 +39,7 @@
             style="@style/text_bottom_sheet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_15"
-            android:text=" " />
+            android:layout_marginStart="@dimen/dp_15"/>
 
     </LinearLayout>
 
@@ -112,7 +111,8 @@
             android:background="@drawable/share"
             android:onClick="onClickShareTask"
             android:padding="@dimen/dp_15"
-            tools:ignore="TouchTargetSizeCheck" />
+            tools:ignore="TouchTargetSizeCheck"
+            android:contentDescription="@string/todo" />
 
         <ImageView
             android:id="@+id/deleteTaskDialog"
@@ -121,7 +121,8 @@
             android:layout_marginStart="@dimen/dp_170"
             android:background="@drawable/bucket"
             android:onClick="onClickDeleteTask"
-            android:padding="@dimen/dp_15" />
+            android:padding="@dimen/dp_15"
+            android:contentDescription="@string/todo" />
 
         <FrameLayout
             android:id="@+id/fragmentDeleteWindow"

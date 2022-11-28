@@ -4,7 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.io.Serializable
-
+import java.util.*
 
 @Entity(tableName = "tasks")
 data class TaskEntity (
@@ -15,7 +15,7 @@ data class TaskEntity (
     @ColumnInfo(name = "messageTask")
     val messageTask: String,
     @ColumnInfo(name = "data")
-    val data: String,
+    val date: Date,
     @ColumnInfo(name = "userEmail")
     val userEmail: String
 ): Serializable

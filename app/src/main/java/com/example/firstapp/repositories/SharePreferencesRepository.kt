@@ -2,7 +2,9 @@ package com.example.firstapp.repositories
 
 import android.content.Context
 import androidx.core.content.edit
-
+import dagger.hilt.android.qualifiers.ApplicationContext
+import javax.inject.Inject
+import javax.inject.Singleton
 
 private const val USER_PREFERENCES = "user_preferences"
 private const val GLOBAL_PREFERENCES = "global_preferences"
@@ -10,7 +12,9 @@ private const val USER_NAME = "user_name"
 private const val USER_EMAIL = "user_email"
 
 //создаем хранилище для нашего приложения
-class SharePreferencesRepository(context: Context) {
+@Singleton
+class SharePreferencesRepository @Inject constructor(
+    @ApplicationContext context: Context) {
 
     private val userPreferences =
         context.getSharedPreferences(USER_PREFERENCES, Context.MODE_PRIVATE)

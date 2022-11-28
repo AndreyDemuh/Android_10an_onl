@@ -15,7 +15,9 @@ import com.example.firstapp.repositories.SharePreferencesRepository
 import com.example.firstapp.ui.adapter.TaskRecyclerAdapter
 import com.example.firstapp.ui.screeens.taskmanagement.AddTaskFragment
 import com.example.firstapp.ui.screeens.TaskInfoFragment.Companion.getTaskInfoInstance
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class TaskFragment : Fragment() {
 
     private lateinit var binding: FragmentTaskBinding
@@ -27,7 +29,7 @@ class TaskFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentTaskBinding.inflate(inflater)
         return binding.root
     }
@@ -78,7 +80,7 @@ class TaskFragment : Fragment() {
 
         rcTaskView?.run {
             adapter = TaskRecyclerAdapter {
-                getTaskInfoInstance(it.nameTask, it.messageTask, it.data, it.id)
+                getTaskInfoInstance(it.nameTask, it.messageTask, it.date, it.id)
                     .show(childFragmentManager, "")
             }
             layoutManager = LinearLayoutManager(requireContext())

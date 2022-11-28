@@ -16,22 +16,22 @@ import com.example.firstapp.repositories.SharePreferencesRepository
 import com.example.firstapp.ui.screeens.registration.LogInFragment
 import com.example.firstapp.ui.screeens.taskmanagement.AddTaskFragment
 import com.example.firstapp.ui.screeens.taskmanagement.AddUserViewModel
-import com.example.firstapp.ui.screeens.taskmanagement.ManagementTaskViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-
+@AndroidEntryPoint
 class ProfileFragment : Fragment() {
 
     private lateinit var binding: FragmentProfileBinding
     private var email: String? = null
-    private val viewModel: ManagementTaskViewModel by activityViewModels()
+    private val viewModel: TaskViewModel by activityViewModels()
     private val viewModelUser: AddUserViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentProfileBinding.inflate(inflater)
         return binding.root
     }

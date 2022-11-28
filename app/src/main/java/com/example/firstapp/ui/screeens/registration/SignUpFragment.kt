@@ -14,20 +14,25 @@ import com.example.firstapp.databinding.FragmentSignUpBinding
 import com.example.firstapp.repositories.SharePreferencesRepository
 import com.example.firstapp.ui.screeens.TaskFragment
 import com.example.firstapp.ui.screeens.taskmanagement.AddUserViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-
+@AndroidEntryPoint
 class SignUpFragment : Fragment() {
 
     private lateinit var binding: FragmentSignUpBinding
     private val viewModel: AddUserViewModel by activityViewModels()
 
+    @Inject
+    lateinit var sharedPreferencesRepository: SharePreferencesRepository
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentSignUpBinding.inflate(inflater)
         return binding.root
 
@@ -122,11 +127,9 @@ class SignUpFragment : Fragment() {
         } ?: return null
     }
 
-    fun onSignUp() {
-        val sharedPreferencesRepository = SharePreferencesRepository(requireContext())
+    private fun onSignUp() {
         if (validate()) {
-            sharedPreferencesRepository.setUserEmail(binding.emailSignUpEditText.text.toString())
-            if ((sharedPreferencesRepository.getUserEmail() == null || (sharedPreferencesRepository.getUserEmail() != null)) ||
+            if ((sharedPreferencesRepository.getUserEmail() == null) ||
                 ((sharedPreferencesRepository.getUserEmail() != null) &&
                         (!(sharedPreferencesRepository.getUserEmail()
                             .equals(binding.emailSignUpEditText.text.toString()))))
@@ -141,9 +144,7 @@ class SignUpFragment : Fragment() {
                     .replace(R.id.container, TaskFragment())
                     .addToBackStack("")
                     .commit()
-            } else if (sharedPreferencesRepository.getUserEmail()
-                    .equals(binding.emailSignUpEditText.text.toString())
-            ) {
+            } else {
                 Toast.makeText(
                     requireContext(),
                     R.string.app_have_this_user,
@@ -153,7 +154,7 @@ class SignUpFragment : Fragment() {
         }
     }
 
-    fun onClickLogIn() {
+    private fun onClickLogIn() {
         parentFragmentManager.beginTransaction()
             .replace(R.id.container, LogInFragment())
             .addToBackStack("")
